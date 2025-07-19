@@ -3,5 +3,6 @@
   "path-intellisense.autoTriggerNextSuggestion": true,
   "path-intellisense.extensionOnImport": true,
   "path-intellisense.ignoreTsConfigBaseUrl": true,
-  "path-intellisense.showHiddenFiles": true
+  "path-intellisense.showHiddenFiles": true,
+  "postman.settings.dotenv-detection-notification-visibility": false
 }
