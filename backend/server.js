@@ -18,7 +18,19 @@ connectCloudinary()
 // middleware
 
 app.use(express.json())
-app.use(cors())
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 // api endpoints
 app.use('/api/user', userRouter)
